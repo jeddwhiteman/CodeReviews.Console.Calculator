@@ -1,8 +1,9 @@
 ﻿using System.Runtime.Intrinsics.Arm;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
+using CalculatorLibary;
 
-namespace Calculator.jeddwhiteman
+namespace CalculatorProgram
 {
     internal class Program
     {
@@ -14,6 +15,8 @@ namespace Calculator.jeddwhiteman
 
             Console.WriteLine("Console Calculator in C#\n");
             Console.WriteLine("------------------------\n");
+
+            Calculator calculator = new Calculator();
 
             while (!endApp)
             {
@@ -56,7 +59,7 @@ namespace Calculator.jeddwhiteman
                 {
                     try
                     {
-                        result = Calculator.DoOperation(cleanNumberOne, cleanNumberTwo, op);
+                        result = calculator.DoOperation(cleanNumberOne, cleanNumberTwo, op);
 
                         if (double.IsNaN(result))
                         {
@@ -77,6 +80,9 @@ namespace Calculator.jeddwhiteman
                 if (Console.ReadLine() == "n") endApp = true;
                 Console.WriteLine("\n");
             }
+
+            calculator.Finish();
+            return;
         }
     }
 }

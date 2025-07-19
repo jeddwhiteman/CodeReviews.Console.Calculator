@@ -8,10 +8,10 @@ namespace Calculator.jeddwhiteman
 {
     internal class Calculator
     {
-        public static double Calcualor(double numberOne, double numberTwo, string op)
+        public static double DoOperation(double numberOne, double numberTwo, string op)
         {
-                double result = 0;
-                switch (Console.ReadLine().ToLower())
+                double result = double.NaN;
+                switch (op)
                 {
                     case "a":
                         result = numberOne + numberTwo;
@@ -33,6 +33,9 @@ namespace Calculator.jeddwhiteman
                             numberTwo = Convert.ToDouble(Console.ReadLine());
                         }
                         Console.WriteLine($"Your result: {numberOne} / {numberTwo} = {numberOne / numberTwo}");
+                        break;
+
+                    default:
                         break;
 
                 }
